@@ -31,10 +31,6 @@ h1 {
   text-align: center;
 }
 
-.card:hover {
-    animation: bounce 0.5s linear;
-}
-
 .card-title {
     text-transform: capitalize;
     margin-bottom: 0px;
@@ -49,7 +45,19 @@ h1 {
 
 .card-image {
     height: 180px;
+    filter: brightness(100%); 
+    transition: filter 0.3s ease; 
 }
+
+.card:hover .card-image {
+    animation: bounce 0.5s linear;
+    filter: brightness(0%); 
+    cursor: pointer; 
+}
+
+.card-image .clicked {
+    filter: brightness(100%);
+  }
 
 @keyframes bounce {
     20% {
