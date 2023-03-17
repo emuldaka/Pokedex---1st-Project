@@ -34,3 +34,10 @@ h1 {
 .card:hover {
     animation: bounce 0.5s linear;
 }
+
+.card-title {
+    text-transform: capitalize;
+    margin-bottom: 0px;
+    font-size: 32px;
+    font-weight: normal;
+}
