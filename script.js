@@ -14,6 +14,16 @@ const fetchPokemon = () => {
       id: result.id,
     }));
     displayPokemon(pokemon);
+    const searchBtn = document.getElementById("search-btn");
+    searchBtn.addEventListener("click", () => {
+      const searchInput = document
+        .getElementById("search-input")
+        .value.toLowerCase();
+      const filteredPokemon = pokemon.filter((poke) =>
+        poke.name.includes(searchInput)
+      );
+      displayPokemon(filteredPokemon);
+    });
   });
 };
 
