@@ -18,6 +18,14 @@ const fetchPokemon = () => {
       id: result.id,
     }));
     displayPokemon(pokemonData);
+    const pokemonImgs = document.querySelectorAll(".card-image");
+    console.log(pokemonImgs);
+    pokemonImgs.forEach((pokemon) => {
+      pokemon.addEventListener("click", () => {
+        console.log("elis");
+        pokemon.classList.toggle("card-revealed");
+      });
+    });
   });
 };
 
