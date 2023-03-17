@@ -22,3 +22,12 @@ h1 {
     grid-gap: 20px;
     padding-inline-start: 0;
 }
+
+.card {
+    list-style: none;
+    padding: 40px;
+    background-color: #ffffff;
+    color: #222;
+  text-align: center;
+}
+
