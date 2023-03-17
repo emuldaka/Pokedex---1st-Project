@@ -26,7 +26,7 @@ h1 {
 .card {
     list-style: none;
     padding: 40px;
-    background-color: #ffffff;
+    background-color: #f4f4f4;
     color: #222;
   text-align: center;
 }
@@ -41,11 +41,14 @@ h1 {
     font-size: 32px;
     font-weight: normal;
 }
-
 .card-subtitle {
     margin-top: 5px;
     color: #666;
     font-weight: lighter;
+}
+
+.card-image {
+    height: 180px;
 }
 
 @keyframes bounce {
