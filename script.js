@@ -1,4 +1,8 @@
 const pokedex = document.getElementById("pokedex");
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("search-button");
+
+let pokemonData = [];
 
 const fetchPokemon = () => {
   const promises = [];
@@ -7,40 +11,40 @@ const fetchPokemon = () => {
     promises.push(fetch(url).then((res) => res.json()));
   }
   Promise.all(promises).then((results) => {
-    const pokemon = results.map((result) => ({
+    pokemonData = results.map((result) => ({
       name: result.name,
       image: result.sprites["front_default"],
       type: result.types.map((type) => type.type.name).join(", "),
       id: result.id,
     }));
-    displayPokemon(pokemon);
-    const searchBtn = document.getElementById("search-btn");
-    searchBtn.addEventListener("click", () => {
-      const searchInput = document
-        .getElementById("search-input")
-        .value.toLowerCase();
-      const filteredPokemon = pokemon.filter((poke) =>
-        poke.name.includes(searchInput)
-      );
-      displayPokemon(filteredPokemon);
-    });
+    displayPokemon(pokemonData);
   });
 };
 
 const displayPokemon = (pokemon) => {
-  console.log(pokemon);
   const pokemonHTMLString = pokemon
     .map(
-      (pokeman) => `
+      (pokemon) => `
         <li class="card">
-            <img class="card-image" src="${pokeman.image}"/>
-            <h2 class="card-title">${pokeman.id}. ${pokeman.name}</h2>
-            <p class="card-subtitle">Type: ${pokeman.type}</p>
+            <img class="card-image" src="${pokemon.image}"/>
+            <h2 class="card-title">${pokemon.id}. ${pokemon.name}</h2>
+            <p class="card-subtitle">Type: ${pokemon.type}</p>
         </li>
     `
     )
     .join("");
   pokedex.innerHTML = pokemonHTMLString;
 };
+
+const searchPokemon = (event) => {
+  event.preventDefault();
+  const searchTerm = searchInput.value.toLowerCase();
+  const filteredPokemon = pokemonData.filter(
+    (pokemon) => pokemon.name.toLowerCase() === searchTerm
+  );
+  displayPokemon(filteredPokemon);
+};
+
+searchButton.addEventListener("click", searchPokemon);
 
 fetchPokemon();
