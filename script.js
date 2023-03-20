@@ -18,12 +18,20 @@ const fetchPokemon = () => {
       id: result.id,
     }));
     displayPokemon(pokemonData);
-    const pokemonImgs = document.querySelectorAll(".card-image");
-    console.log(pokemonImgs);
-    pokemonImgs.forEach((pokemon) => {
+    const pokemonCards = document.querySelectorAll(".card");
+
+    pokemonCards.forEach((pokemon) => {
+      const title = pokemon.querySelector(".card-title");
+      const image = pokemon.querySelector(".card-image");
+      const sub = pokemon.querySelector(".card-subtitle");
+
       pokemon.addEventListener("click", () => {
-        console.log("elis");
-        pokemon.classList.toggle("card-revealed");
+        image.classList.toggle("card-imageRevealed");
+        title.classList.toggle("card-titleRevealed");
+        sub.classList.toggle("card-subRevealed");
+        // console.log(pokemon);
+        // pokemon.classList.toggle("card-subRevealed");
+        // pokemon.classList.toggle("card-titlesRevealed");
       });
     });
   });
@@ -50,6 +58,19 @@ const searchPokemon = (event) => {
   const filteredPokemon = pokemonData.filter(
     (pokemon) => pokemon.name.toLowerCase() === searchTerm
   );
+  // console.log(pokemon[0]);
+  const pokemonCards = document.querySelectorAll(".card");
+  pokemonCards.forEach((pokemon) => {
+    // console.log(pokemon);
+    //   if (pokemon.name != filteredPokemon[0].name) {
+    //     const title = pokemon.querySelector(".card-title");
+    //     const image = pokemon.querySelector(".card-image");
+    //     const sub = pokemon.querySelector(".card-subtitle");
+    //     image.className = "card-imageRevealed";
+    //     title.className = "card-titleRevealed";
+    //     sub.className = "card-subRevealed";
+    //   }
+  });
   displayPokemon(filteredPokemon);
 };
 

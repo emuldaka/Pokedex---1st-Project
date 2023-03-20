@@ -26,7 +26,7 @@ h1 {
 .card {
     list-style: none;
     padding: 40px;
-    background-color: #f4f4f4;
+    background-color: white;
     color: #222;
   text-align: center;
 }
@@ -36,10 +36,26 @@ h1 {
     margin-bottom: 0px;
     font-size: 32px;
     font-weight: normal;
+    color: white;
 }
+
+.card-titleRevealed {
+    text-transform: capitalize;
+    margin-bottom: 0px;
+    font-size: 32px;
+    font-weight: normal;
+    color: black;
+}
+
 .card-subtitle {
     margin-top: 5px;
-    color: #666;
+    color: white;
+    font-weight: lighter;
+}
+
+.card-subRevealed {
+    margin-top: 5px;
+    color: black;
     font-weight: lighter;
 }
 
@@ -49,7 +65,7 @@ h1 {
     transition: filter 0.3s ease; 
 }
 
-.card-revealed {
+.card-imageRevealed {
     height: 180px;
     filter: brightness(100%); 
     transition: filter 0.3s ease; 
