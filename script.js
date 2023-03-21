@@ -1,6 +1,8 @@
 const pokedex = document.getElementById("pokedex");
 const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
+const searchTypeInput = document.getElementById("searchType-input");
+const searchTypeButton = document.getElementById("searchType-button");
 
 let pokemonData = [];
 
@@ -58,22 +60,25 @@ const searchPokemon = (event) => {
   const filteredPokemon = pokemonData.filter(
     (pokemon) => pokemon.name.toLowerCase() === searchTerm
   );
-  // console.log(pokemon[0]);
+
   const pokemonCards = document.querySelectorAll(".card");
-  pokemonCards.forEach((pokemon) => {
-    // console.log(pokemon);
-    //   if (pokemon.name != filteredPokemon[0].name) {
-    //     const title = pokemon.querySelector(".card-title");
-    //     const image = pokemon.querySelector(".card-image");
-    //     const sub = pokemon.querySelector(".card-subtitle");
-    //     image.className = "card-imageRevealed";
-    //     title.className = "card-titleRevealed";
-    //     sub.className = "card-subRevealed";
-    //   }
-  });
+  pokemonCards.forEach((pokemon) => {});
   displayPokemon(filteredPokemon);
 };
 
+const searchPokemonType = (event) => {
+  event.preventDefault();
+  const searchType = searchTypeInput.value.toLowerCase();
+  const filterType = pokemonData.filter((pokemon) =>
+    pokemon.type.includes(searchType)
+  );
+  const pokemonCards = document.querySelectorAll(".card");
+  pokemonCards.forEach((pokemon) => {});
+  displayPokemon(filterType);
+};
+
 searchButton.addEventListener("click", searchPokemon);
+
+searchTypeButton.addEventListener("click", searchPokemonType);
 
 fetchPokemon();
