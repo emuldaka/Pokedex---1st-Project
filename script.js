@@ -18,22 +18,6 @@ const fetchPokemon = () => {
       id: result.id,
     }));
     displayPokemon(pokemonData);
-    const pokemonCards = document.querySelectorAll(".card");
-
-    pokemonCards.forEach((pokemon) => {
-      const title = pokemon.querySelector(".card-title");
-      const image = pokemon.querySelector(".card-image");
-      const sub = pokemon.querySelector(".card-subtitle");
-
-      pokemon.addEventListener("click", () => {
-        image.classList.toggle("card-imageRevealed");
-        title.classList.toggle("card-titleRevealed");
-        sub.classList.toggle("card-subRevealed");
-        // console.log(pokemon);
-        // pokemon.classList.toggle("card-subRevealed");
-        // pokemon.classList.toggle("card-titlesRevealed");
-      });
-    });
   });
 };
 
@@ -50,6 +34,22 @@ const displayPokemon = (pokemon) => {
     )
     .join("");
   pokedex.innerHTML = pokemonHTMLString;
+  const pokemonCards = document.querySelectorAll(".card");
+
+  pokemonCards.forEach((pokemon) => {
+    const title = pokemon.querySelector(".card-title");
+    const image = pokemon.querySelector(".card-image");
+    const sub = pokemon.querySelector(".card-subtitle");
+
+    pokemon.addEventListener("click", () => {
+      image.classList.toggle("card-imageRevealed");
+      title.classList.toggle("card-titleRevealed");
+      sub.classList.toggle("card-subRevealed");
+      // console.log(pokemon);
+      // pokemon.classList.toggle("card-subRevealed");
+      // pokemon.classList.toggle("card-titlesRevealed");
+    });
+  });
 };
 
 const searchPokemon = (event) => {

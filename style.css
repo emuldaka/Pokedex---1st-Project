@@ -37,6 +37,7 @@ h1 {
     font-size: 32px;
     font-weight: normal;
     color: white;
+    visibility: hidden;
 }
 
 .card-titleRevealed {
@@ -45,18 +46,21 @@ h1 {
     font-size: 32px;
     font-weight: normal;
     color: black;
+    visibility: visible;
 }
 
 .card-subtitle {
     margin-top: 5px;
     color: white;
     font-weight: lighter;
+    visibility: hidden;
 }
 
 .card-subRevealed {
     margin-top: 5px;
     color: black;
     font-weight: lighter;
+    visibility: visible;
 }
 
 .card-image {
@@ -71,13 +75,13 @@ h1 {
     transition: filter 0.3s ease; 
 }
 
-/* .card:hover .card-image {
+.card:hover .card-image {
     animation: bounce 0.5s linear;
-    filter: brightness(100%); 
+    /* filter: brightness(100%);  */
     cursor: pointer; 
 }
 
-.card-image .clicked {
+/* .card-image .clicked {
     filter: brightness(100%);
   } */
 
