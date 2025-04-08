@@ -1,4 +1,4 @@
-# Phase-1-Project
+# Phase-1-Project - POKEDEX!
 
 Pokemon Api
 -make pokedex that fetches gen 1 pokemon (1-150)
